@@ -1,1 +1,5 @@
-module.exports={Fashion: require("./Fashion")}
+module.exports={
+    Fashion: require("./Fashion"),
+    Book: require('./Book'),
+    Word: require('./Word'),
+} 

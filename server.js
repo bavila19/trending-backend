@@ -21,7 +21,9 @@ const morgan = require ('morgan')
 
 
 //WHEN WE ARE READY CONTROLLER IMPORTS GO HERE!!!!
+const bookController = require('./controllers/book_controller')
 const fashionController = require('./controllers/fashion_controller')
+const wordController = require('./controllers/word_controller')
 
 //express / app middleware
 app.use(express.json())
@@ -35,6 +37,8 @@ app.use(morgan('dev'))
 
 
 app.use('/fashion', fashionController)
+app.use('/book', bookController)
+app.use('/word', wordController)
 ///////////////////////////////
 // ROUTES
 ////////////////////////////////
