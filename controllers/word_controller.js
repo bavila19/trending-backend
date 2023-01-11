@@ -2,14 +2,14 @@ const { json } = require('express')
 const express = require('express')
 const router = express.Router()
 // router.use(express.json())
-const {Fashion} = require('../models')
+const {Word} = require('../models')
 //const db = require('../models')
 
 //Index route
 router.get('/', async (req,res)=>{ 
     try {
-        const fashionista = await Fashion.find({})
-        return res.status(200).json(fashionista)
+        const Wordboy = await Word.find({})
+        return res.status(200).json(Wordboy)
     } catch(error) {
         console.error(error)
         return next(error)
@@ -19,8 +19,8 @@ router.get('/', async (req,res)=>{
 //Show Route
 router.get('/:id', async(req,res)=>{
     try{
-        const findFashion = await Fashion.findById(req.params.id)
-        res.status(201).json(findFashion)
+        const findWord = await Word.findById(req.params.id)
+        res.status(201).json(findWord)
     }catch(err){
         res.status(400).json({error: err.message})
     }
@@ -29,17 +29,17 @@ router.get('/:id', async(req,res)=>{
 //Post Route
 router.post('/', async(req, res)=>{
     try{
-        const newFashion = await Fashion.create(req.body)
-        res.status(201).json(newFashion)
+        const newWord = await Word.create(req.body)
+        res.status(201).json(newWord)
     }catch(err){
         res.status(400).json ({error:err.message})
     }
 })
 
-//
+//Update Route
 router.put('/:id', async (req, res) => {
     try{
-        res.json(await Fashion.findByIdAndUpdate(req.params.id, req.body, {new:true}))
+        res.json(await Word.findByIdAndUpdate(req.params.id, req.body, {new:true}))
     }catch (error){
         res.json(error)
     }
@@ -48,8 +48,8 @@ router.put('/:id', async (req, res) => {
 // Delete Route
 router.delete('/:id', async(req,res)=>{
     try{
-        const deletedFashion = await Fashion.findByIdAndDelete(req.params.id)
-        res.status(201).json(deletedFashion)
+        const deletedWord = await Word.findByIdAndDelete(req.params.id)
+        res.status(201).json(deletedWord)
     }catch(err){
         res.status(400).json({error: err.message})
     }

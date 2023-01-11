@@ -1,5 +1,5 @@
 module.exports={
-    Fashion: require("./Fashion"),
+    Fashion: require('./Fashion'),
     Book: require('./Book'),
     Word: require('./Word'),
 } 
