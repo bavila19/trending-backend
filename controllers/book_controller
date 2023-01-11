@@ -52,12 +52,12 @@ router.put("/:id", async (req, res, next) => {
 
 // Delete Route
 router.delete("/:id", async (req, res) => {
-    try {
-      const deletedBook = await Book.findByIdAndDelete(req.params.id);
-      res.status(201).json(deletedBook);
-    } catch (err) {
-      res.status(400).json({ error: err.message });
-    }
-  });
+  try {
+    const deletedBook = await Book.findByIdAndDelete(req.params.id);
+    res.status(201).json(deletedBook);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
 
 module.exports = router;
